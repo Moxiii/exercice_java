@@ -2,6 +2,8 @@ package gestion;
 
 public class Main {
     public static void main(String[] args) {
+        GUI gui = new GUI();
+        gui.run();
         // Création d'un nouveau client et ajout dans la base de données
         Client client1 = new Client(1, "John Doe", 1000);
         ClientDAO.getInstance().ajouterClient(client1);
@@ -14,5 +16,6 @@ public class Main {
         for (Client client : clients) {
             System.out.println(client);
         }
+        
     }
 }
