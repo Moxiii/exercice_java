@@ -1,0 +1,20 @@
+package banque;
+import banque.*;
+public class Main {
+	public static void main(String[] args) {
+        CompteClient monCompte = new CompteClient("Max", 100);
+        CompteClient monCompte2 = new CompteClient("John Doe", 1000);
+        
+        System.out.println("Nom du client : " + monCompte.getNom());
+        System.out.println("Solde initial : " + monCompte.getSolde());
+
+        monCompte.deposer(500);
+        System.out.println("Solde après dépôt : " + monCompte.getSolde());
+
+        monCompte.retirer(200);
+        System.out.println("Solde après retrait : " + monCompte.getSolde());
+
+        monCompte.retirer(2000);
+        System.out.println("Solde après retrait : " + monCompte.getSolde());
+    }
+}

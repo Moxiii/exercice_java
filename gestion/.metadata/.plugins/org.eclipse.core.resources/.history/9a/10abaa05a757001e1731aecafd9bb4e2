@@ -1,0 +1,18 @@
+package banque;
+import banque.Client;
+import java.util.ArrayList;
+public class Programme {
+	private ArrayList<Client> clients;
+	public void SystemeAffichageClient() {
+		this.clients = new ArrayList<>();
+	}
+	public void ajouterClient(Client client) {
+		clients.add(client);
+	}
+	public void afficherClients() {
+		for (Client client : clients) {
+			System.out.println("Nom : "+client.getNom()+" Email: "+client.getEmail());
+		}
+	}
+	
+}
