@@ -1,21 +1,18 @@
 package gestion;
-import gestion.CompteClient;
-public class main {
-    public static void Main(String[] args) {
-        CompteClient monCompte = new CompteClient("Max", 100);
-        //CompteClient monCompte = new CompteClient("John Doe", 1000);
-        
-        System.out.println("Nom du client : " + monCompte.getNom());
-        System.out.println("Solde initial : " + monCompte.getSolde());
 
-        monCompte.deposer(500);
-        System.out.println("Solde après dépôt : " + monCompte.getSolde());
+public class Main {
+    public static void main(String[] args) {
+        // Création d'un nouveau client et ajout dans la base de données
+        Client client1 = new Client(1, "John Doe", 1000);
+        ClientDAO.getInstance().ajouterClient(client1);
 
-        monCompte.retirer(200);
-        System.out.println("Solde après retrait : " + monCompte.getSolde());
+        // Retrait d'argent du client
+        ClientDAO.getInstance().retirerArgent(1, 500);
 
-        monCompte.retirer(2000);
-        System.out.println("Solde après retrait : " + monCompte.getSolde());
+        // Affichage de la liste des clients
+        List<Client> clients = ClientDAO.getInstance().getClients();
+        for (Client client : clients) {
+            System.out.println(client);
+        }
     }
-
 }
